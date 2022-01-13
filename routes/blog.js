@@ -124,4 +124,16 @@ router.post("/posts/:id/delete", async function (req, res) {
     res.redirect("/posts");
 });
 
+router.get("/new-author", function (req, res) {
+    res.render("add-author");
+});
+
+router.post("/new-author", async function (req, res) {
+    await db
+        .getDb()
+        .collection("authors")
+        .insertOne({ name: req.body.name, email: req.body.email });
+    res.redirect("/posts");
+});
+
 module.exports = router;
