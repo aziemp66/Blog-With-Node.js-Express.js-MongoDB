@@ -35,7 +35,7 @@
                 </div>
                 <div class="form-control">
                     <label for="author">Select Author</label>
-                    <select id="author" name="author">
+                    <select id="author" name="author" required>
                         <% for (const author of authors) { %>
                         <option value="<%= author._id %>">
                             <%= author.name %>
