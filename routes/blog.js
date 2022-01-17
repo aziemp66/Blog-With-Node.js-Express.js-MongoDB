@@ -18,6 +18,7 @@ router.get("/posts", async function (req, res) {
         .find({})
         .project({ title: 1, summary: 1, "author.name": 1 })
         .toArray();
+    console.log(posts);
     res.render("posts-list", { posts: posts });
 });
 
